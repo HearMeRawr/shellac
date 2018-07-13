@@ -13,7 +13,7 @@ if [ "$1" != "" ]; then
         feh --bg-scale $DIR/i3/background.jpg
         ln -sf "$DIR/i3/config" "$HOME/.config/i3/config"
         ln -sf "$DIR/i3status/config" "$HOME/.config/i3status/config"
-        i3 reload
+        i3 restart
         
          
         if [ "$2" != "" ]; then
@@ -55,7 +55,7 @@ elif [ -d "$HOME/Themes/default" ]; then
     feh --bg-scale $DEF/i3/background.jpg
     ln -sf "$DEF/i3/config" "$HOME/.config/i3/config"
     ln -sf "$DEF/i3status/config" "$HOME/.config/i3status/config"
-    i3 reload
+    i3 restart
 elif [-d "$HOME/Themes"]; then
     echo "You have no themes!"
 else
