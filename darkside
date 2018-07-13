@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+has_display() {
+	[[ -n "$DISPLAY" ]]
+}
+
+main() {
+	if has_display; then
+		ln -sf "$HOME/.config/termite/config_dark" "$HOME/.config/termite/config"
+		killall -USR1 termite
+	else
+		"$HOME/.vconsole_dark"
+		clear
+	fi
+}
+
+main
