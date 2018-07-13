@@ -36,7 +36,7 @@ if [ "$1" != "" ]; then
     elif [ "$1" = "--help" ]; then
         echo '
         shellac;
-        usage: shellac | {themename}
+        usage: shellac | {$themename} | {dark, light}
         description: an i3 theme switcher
         {themename}: name of theme in $HOME/Themes
         '
