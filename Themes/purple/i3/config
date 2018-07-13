@@ -182,19 +182,19 @@ bar {
     workspace_buttons yes
 
     colors {
-        background #170000
-        statusline #dda1a1
+        background #140017
+        statusline #ffffff
 
-        focused_workspace  #ffffff #772828
+        focused_workspace  #ffffff #772877
         active_workspace   #ffffff #333333
         inactive_workspace #888888 #222222
-        urgent_workspace   #ffffff #900000
+        urgent_workspace   #ffffff #900090
     }
 }
 
 # <clientclass>         <border> <backgr.> <text> <indicator>
-client.focused          #170000 #170000 #ffffff #170000
-client.focused_inactive #505050 #61194a #ffffff #774060
+client.focused          #140017 #140017 #ffffff #170000
+client.focused_inactive #505050 #505050 #ffffff #774060
 client.unfocused        #303030 #303030 #aea79f #603944
 client.urgent           #f0be50 #ef3e3e #ffffff #efb73e
 
