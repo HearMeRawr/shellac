@@ -8,14 +8,29 @@ if [ "$1" != "" ]; then
         echo "Installing theme in" $DIR
 
         ln -sf "$DIR/termite/config_light" "$HOME/.config/termite/config_light"
-        lightside
         ln -sf "$DIR/termite/config_dark" "$HOME/.config/termite/config_dark"
-        darkside
         ln -sf "$DIR/i3/background.jpg" "$HOME/.config/i3/background.jpg"
         feh --bg-scale $DIR/i3/background.jpg
         ln -sf "$DIR/i3/config" "$HOME/.config/i3/config"
         ln -sf "$DIR/i3status/config" "$HOME/.config/i3status/config"
         i3 reload
+        
+         
+        if [ "$2" != "" ]; then
+            if [ "$2" = "light" ]; then
+                ln -sf "$HOME/.config/termite/config_light" "$HOME/.config/termite/config"
+                killall -USR1 termite
+            elif [ "$2" = "dark" ]; then
+                ln -sf "$HOME/.config/termite/config_dark" "$HOME/.config/termite/config"
+                killall -USR1 termite
+            else
+                echo "$2 isn't light | dark, defaulting to dark..."
+                ln -sf "$HOME/.config/termite/config_dark" "$HOME/.config/termite/config"
+                killall -USR1 termite
+            fi
+        else
+            ln -sf "$HOME/.config/termite/config_dark" "$HOME/.config/termite/config"
+        fi
         
         echo "Theme is now $1"
     elif [ "$1" = "--help" ]; then
@@ -34,9 +49,7 @@ elif [ -d "$HOME/Themes/default" ]; then
     echo "Switching to default theme..."
 
     ln -sf "$DEF/termite/config_light" "$HOME/.config/termite/config_light"
-    lightside
     ln -sf "$DEF/termite/config_dark" "$HOME/.config/termite/config_dark"
-    darkside
     ln -sf "$DEF/i3/background.jpg" "$HOME/.config/i3/background.jpg"
     feh --bg-scale $DEF/i3/background.jpg
     ln -sf "$DEF/i3/config" "$HOME/.config/i3/config"
